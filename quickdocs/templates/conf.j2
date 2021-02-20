@@ -1,0 +1,52 @@
+import datetime
+import os
+import re
+
+import pypandoc
+
+project = "Yummy Cereal"
+version = "2.0.3"
+master_doc = "index"
+
+author = "Joel Lefkowitz"
+copyright = f"{datetime.datetime.now().year}, {author}"
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "venv"]
+
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx_autodoc_annotation",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
+    "sphinxcontrib.apidoc",
+]
+
+# Yummy sphinx theme settings
+html_theme = "yummy_sphinx_theme"
+html_title = "Yummy Cereal"
+static_dir = relpath("../static")
+
+html_favicon = os.path.join(static_dir, "favicon.ico")
+
+html_theme_options = {
+    "github_url": "JoelLefkowitz/yummy-cereal",
+    "navbar_icon": "spin fa-book",
+}
+
+html_css_files = [os.path.join(static_dir, "styles.css")]
+html_add_permalinks = ""
+
+# Convert README to html directly
+convert_md(relpath("../../README.md"), static_dir)
+remove_heading(os.path.join(static_dir, "README.html"))
+
+# Autodoc settings
+autodoc_typehints = "description"
+typehints_fully_qualified = True
+autodoc_default_flags = ["members", "undoc-members"]
+
+# Napoleon settings
+napoleon_google_docstring = True
+
+# Apidoc settings
+apidoc_module_dir = relpath("../../yummy_cereal")
+apidoc_extra_args = ["-e"]
