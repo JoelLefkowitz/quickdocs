@@ -1,0 +1,16 @@
+""" Yummy sphinx theme settings"""
+
+import os
+
+html_theme = "yummy_sphinx_theme"
+html_title = {{html_title}}
+
+static_dir = "static"
+html_favicon = os.path.join(static_dir, "favicon.ico")
+html_css_files = [os.path.join(static_dir, "styles.css")]
+
+html_add_permalinks = ""
+html_theme_options = {
+    "navbar_icon": "spin fa-book",
+    "github_url": {{github_url}}
+}

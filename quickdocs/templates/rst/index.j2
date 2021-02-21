@@ -1,0 +1,34 @@
+{% if verbose_project %}
+{{ verbose_project }}
+{% else %}
+{{project}}
+{% endif %}
+============
+
+{% if verbose_project %}
+Welcome to {{verbose_project}}'s documentation!
+{% else %}
+Welcome to {{project}}'s documentation!
+{% endif %}
+
+.. raw:: html
+   :file: static/README.html
+
+|
+
+Content
+-------
+
+.. toctree::
+   :maxdepth: 1
+{% if apidoc_module_dir %}
+   api/modules
+{% endif %}
+
+|
+
+Indices and tables
+------------------
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

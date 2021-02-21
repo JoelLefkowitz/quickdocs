@@ -1,52 +1,28 @@
-import datetime
+"""Sphinx configuration file"""
+
 import os
-import re
+import shutil
+from templates.autodoc import * # noqa
+from templates.sphinx import * # noqa
+from templates.yummy import * # noqa
 
-import pypandoc
+{% if debug %}
+from pprint import pprint
+{% endif %}
+from runtime import modify_file, markup, fmt_copyright, remove_heading
 
-project = "Yummy Cereal"
-version = "2.0.3"
-master_doc = "index"
+copyright = fmt_copyright(author)
 
-author = "Joel Lefkowitz"
-copyright = f"{datetime.datetime.now().year}, {author}"
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "venv"]
+{% if debug %}
+pprint(locals())
+{% endif %}
 
-extensions = [
-    "sphinx.ext.autodoc",
-    "sphinx_autodoc_annotation",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.viewcode",
-    "sphinxcontrib.apidoc",
-]
+static_dir = os.path.join("{{output_dir}}", "static")
 
-# Yummy sphinx theme settings
-html_theme = "yummy_sphinx_theme"
-html_title = "Yummy Cereal"
-static_dir = relpath("../static")
+readme_md_path = os.path.join(static_dir, "README.md")
+readme_html_path = os.path.join(static_dir, "README.html")
 
-html_favicon = os.path.join(static_dir, "favicon.ico")
-
-html_theme_options = {
-    "github_url": "JoelLefkowitz/yummy-cereal",
-    "navbar_icon": "spin fa-book",
-}
-
-html_css_files = [os.path.join(static_dir, "styles.css")]
-html_add_permalinks = ""
-
-# Convert README to html directly
-convert_md(relpath("../../README.md"), static_dir)
-remove_heading(os.path.join(static_dir, "README.html"))
-
-# Autodoc settings
-autodoc_typehints = "description"
-typehints_fully_qualified = True
-autodoc_default_flags = ["members", "undoc-members"]
-
-# Napoleon settings
-napoleon_google_docstring = True
-
-# Apidoc settings
-apidoc_module_dir = relpath("../../yummy_cereal")
-apidoc_extra_args = ["-e"]
+shutil.copy("README.md", readme_md_path)
+markup(readme_md_path, static_dir)
+os.remove(readme_md_path)
+modify_file(readme_html_path, remove_heading)

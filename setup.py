@@ -4,6 +4,9 @@ if __name__ == "__main__":
     setup(
         install_requires=[
             "pypandoc",
+            "pyyaml",
+            "walkmate",
+            "simple_pipes",
             "sphinx",
             "pyimport",
             "pypandoc",
@@ -15,6 +18,7 @@ if __name__ == "__main__":
         extras_require={
             "dist": ["wheel", "twine", "bump2version"],
             "tests": [
+                "tox",
                 "pytest",
                 "pytest-cov",
                 "pytest-html",
