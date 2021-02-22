@@ -1,8 +1,10 @@
-from typing import Dict
+from typing import Any, Dict
+
+AnyDict = Dict[Any, Any]
 
 
-def merge_dicts(*args: Dict) -> Dict: 
-    out = {}
+def merge_dicts(*args: AnyDict) -> Dict:
+    out = {}  # type: AnyDict
     for dct in args:
-        dict(out, **dct)    
+        out = dict(**out, **dct)
     return out

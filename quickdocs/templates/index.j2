@@ -1,19 +1,21 @@
-{% if verbose_project %}
-{{ verbose_project }}
+{% if verbose_name %}
+{{ verbose_name }}
 {% else %}
 {{project}}
 {% endif %}
 ============
 
-{% if verbose_project %}
-Welcome to {{verbose_project}}'s documentation!
+{% if verbose_name %}
+Welcome to {{verbose_name}}'s documentation!
 {% else %}
 Welcome to {{project}}'s documentation!
 {% endif %}
 
+{% if markup_readme %}
 .. raw:: html
-   :file: static/README.html
+   :file: README.html
 
+{% endif %}
 |
 
 Content
@@ -21,6 +23,7 @@ Content
 
 .. toctree::
    :maxdepth: 1
+   
 {% if apidoc_module_dir %}
    api/modules
 {% endif %}

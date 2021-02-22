@@ -1,43 +1,44 @@
 import os
 import shutil
-from pathlib import Path
-
+import sys
+from argparse import ArgumentParser
 from walkmate import get_child_files
 
-from .files import change_ext
-from .inputs import Inputs
-from .jinja import parse_template
+from .state.inputs import Inputs
+from .state.paths import Paths
+from .utils.dicts import merge_dicts
+from .utils.jinja import parse_template
+from .utils.paths import create_parents, replace_ext, path_head
+
+templates_dir = os.path.normpath(os.path.join(__file__, "..", "templates"))
+
+cli = ArgumentParser("Quickdocs")
+cli.add_argument("input", help="Input file path")
+cli.add_argument("--output-dir", help="Output directory", default=os.path.join(os.getcwd(), "docs"))
 
 
 if __name__ == "__main__":
-    paths = {
-        output_dir = "./quickdocs/dist"
-        template_dir = "./quickdocs/templates"
-    }
-    
-    inputs = Inputs.from_file("tests/fixtures/inputs.json", "json")
+    args = cli.parse_args()
+    inputs = Inputs.from_file(args.input)
 
-    render_context = dict(**paths, **inputs.__dict__)
+    for template_path in get_child_files(templates_dir):
+        paths = Paths(template_path, templates_dir, args.output_dir)
+        render_context = merge_dicts(inputs.dct, paths.dct)
+        create_parents(paths.output_path)
 
-    for path in get_child_files(template_dir):
+        if paths.first_subdir == "static":
+            shutil.copy(paths.template_path, paths.output_path)
 
-        # Path relative to template_dir
-        local_path = os.path.relpath(path, template_dir)
-
-        # First segment of path relative to template_dir
-        local_path_base = os.path.normpath(local_path).split(os.sep)[0]
-
-        # Destination
-        output_path = os.path.join(output_dir, local_path)
-        Path(os.path.split(output_path)[0]).mkdir(parents=True, exist_ok=True)
-
-        if local_path_base == "static":
-            shutil.copy(path, output_path)
-
-        elif local_path_base == "rst":
-            output_path = change_ext(output_path, "rst")
-            parse_template(path, output_path, render_context)
+        elif path_head(template_path) == "conf.j2":
+            parse_template(
+                paths.template_path,
+                replace_ext(paths.output_path, ".py"),
+                render_context,
+            )
 
         else:
-            output_path = change_ext(output_path, "py")
-            parse_template(path, output_path, render_context)
+            parse_template(
+                paths.template_path,
+                replace_ext(paths.output_path, ".rst"),
+                render_context,
+            )

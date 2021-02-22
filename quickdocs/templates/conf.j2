@@ -1,28 +1,85 @@
-"""Sphinx configuration file"""
+import re
+import sys
+import datetime
+import pypandoc
 
-import os
-import shutil
-from templates.autodoc import * # noqa
-from templates.sphinx import * # noqa
-from templates.yummy import * # noqa
+sys.path.append("{{project_root}}")
 
 {% if debug %}
+"""
+    Debugging tools:
+    -> pprint local variables
+"""
 from pprint import pprint
-{% endif %}
-from runtime import modify_file, markup, fmt_copyright, remove_heading
-
-copyright = fmt_copyright(author)
-
-{% if debug %}
 pprint(locals())
+
 {% endif %}
+"""
+    Sphinx core settings
+"""
+project = "{{ project }}"
+version = "{{ version }}"
+author = "{{ author }}"
 
-static_dir = os.path.join("{{output_dir}}", "static")
+master_doc = "index"
 
-readme_md_path = os.path.join(static_dir, "README.md")
-readme_html_path = os.path.join(static_dir, "README.html")
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "venv"]
 
-shutil.copy("README.md", readme_md_path)
-markup(readme_md_path, static_dir)
-os.remove(readme_md_path)
-modify_file(readme_html_path, remove_heading)
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx_autodoc_annotation",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
+    "sphinxcontrib.apidoc",
+]
+
+"""
+    Sphinx autodoc settings
+    -> Declares apidoc_module_dir if defined
+"""
+autodoc_typehints = "description"
+typehints_fully_qualified = True
+autodoc_default_flags = ["members", "undoc-members"]
+napoleon_google_docstring = True
+
+{% if apidoc_module_dir %}
+apidoc_module_dir = "{{[project_root, apidoc_module_dir] | path_join}}"
+apidoc_extra_args = ["-e"]
+
+{% endif %}
+"""
+    Yummy sphinx theme settings
+"""
+html_theme = "yummy_sphinx_theme"
+html_title = "{{html_title}}"
+
+static_dir = "static"
+
+html_favicon = "{{["static", "favicon.ico"] | path_join}}"
+html_css_files = "{{["static", "styles.css"] | path_join}}"
+
+html_add_permalinks = ""
+html_theme_options = {
+    "navbar_icon": "spin fa-book",
+    "github_url": "{{github_url}}"
+}
+
+"""
+    Runtime work
+    -> Generates a copyright for this year
+    -> Converts the project readme to HTML
+"""
+copyright = f"{datetime.datetime.now().year} {author}"
+{% if markup_readme %}
+
+with open("{{[project_root, readme_name] | path_join}}", "r") as stream:
+    html = re.sub(
+        "<h1.*>.*?</h1>",
+        "",
+        pypandoc.convert(stream.read(), "html", format="md"),
+        flags=re.DOTALL
+    )
+
+with open("{{readme_name.replace(".md", ".html")}}", "w") as stream:
+    stream.write(html)
+{% endif %}
