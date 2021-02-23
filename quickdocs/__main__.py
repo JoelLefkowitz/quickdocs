@@ -8,7 +8,7 @@ from .state.inputs import Inputs
 from .state.paths import Paths
 from .utils.dicts import merge_dicts
 from .utils.jinja import parse_template
-from .utils.paths import create_parents, path_head, replace_ext
+from .utils.paths import create_parents, path_head, replace_ext, reverse_to_root
 
 templates_dir = os.path.normpath(
     os.path.join(__file__, "..", "templates")
@@ -29,7 +29,17 @@ def main() -> None:
 
     for template_path in get_child_files(templates_dir):
         paths = Paths(template_path, templates_dir, args.output_dir)
-        render_context = merge_dicts(inputs.dct, paths.dct)
+
+        render_context = merge_dicts(
+            inputs.dct,
+            paths.dct,
+            {
+                "reverse_to_root": reverse_to_root(
+                    inputs.project_root, args.output_dir
+                )
+            },
+        )
+
         create_parents(paths.output_path)
 
         if paths.first_subdir == "static":
@@ -48,6 +58,7 @@ def main() -> None:
                 replace_ext(paths.output_path, ".rst"),
                 render_context,
             )
+
 
 
 if __name__ == "__main__":

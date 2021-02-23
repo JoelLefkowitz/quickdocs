@@ -29,7 +29,7 @@ class Inputs:
 
     # Readme settings
     markup_readme: bool = True
-    readme_name: str = "README.md"
+    readme_path: str = "README.md"
 
     # Apicdoc settings
     apidoc_module_dir: Optional[str] = None

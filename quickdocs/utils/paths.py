@@ -24,3 +24,10 @@ def replace_ext(path: str, ext: str) -> str:
 
 def create_parents(path: str) -> None:
     Path(path_tail(path)).mkdir(parents=True, exist_ok=True)
+
+
+def reverse_to_root(project_root: str, output_dir: str) -> str:
+    return os.path.relpath(
+        project_root,
+        os.path.realpath(output_dir),
+    )

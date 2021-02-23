@@ -24,5 +24,5 @@ class Paths:
         return os.path.join(self.output_dir, self.local_path)
 
     @property
-    def first_subdir(self):
+    def first_subdir(self) -> str:
         return path_base(self.local_path)

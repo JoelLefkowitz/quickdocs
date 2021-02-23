@@ -3,12 +3,12 @@ import sys
 import datetime
 import pypandoc
 
-sys.path.append("/Users/joel/Workspace/quickdocs")
+sys.path.append("..")
 
 """
     Sphinx core settings
 """
-project = "Quickdocs"
+project = "quickdocs"
 version = "1.0.0"
 author = "Joel Lefkowitz"
 
@@ -32,6 +32,9 @@ autodoc_typehints = "description"
 typehints_fully_qualified = True
 autodoc_default_flags = ["members", "undoc-members"]
 napoleon_google_docstring = True
+
+apidoc_module_dir = "../quickdocs"
+apidoc_extra_args = ["-e"]
 
 """
     Yummy sphinx theme settings
@@ -57,7 +60,7 @@ html_theme_options = {
 """
 copyright = f"{datetime.datetime.now().year} {author}"
 
-with open("/Users/joel/Workspace/quickdocs/README.md", "r") as stream:
+with open("../README.md", "r") as stream:
     html = re.sub(
         "<h1.*>.*?</h1>",
         "",

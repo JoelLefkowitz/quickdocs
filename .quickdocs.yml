@@ -1,6 +1,7 @@
-project: Quickdocs
+project: quickdocs
 version: 1.0.0
 author: Joel Lefkowitz
+verbose_name: Quickdocs
 html_title: Quickdocs
 github_url: JoelLefkowitz/quickdocs
-
+apidoc_module_dir: quickdocs

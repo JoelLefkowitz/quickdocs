@@ -3,7 +3,7 @@ import sys
 import datetime
 import pypandoc
 
-sys.path.append("{{project_root}}")
+sys.path.append("{{reverse_to_root}}")
 
 {% if debug %}
 """
@@ -43,7 +43,7 @@ autodoc_default_flags = ["members", "undoc-members"]
 napoleon_google_docstring = True
 
 {% if apidoc_module_dir %}
-apidoc_module_dir = "{{[project_root, apidoc_module_dir] | path_join}}"
+apidoc_module_dir = "{{[reverse_to_root, apidoc_module_dir] | path_join}}"
 apidoc_extra_args = ["-e"]
 
 {% endif %}
@@ -72,7 +72,7 @@ html_theme_options = {
 copyright = f"{datetime.datetime.now().year} {author}"
 {% if markup_readme %}
 
-with open("{{[project_root, readme_name] | path_join}}", "r") as stream:
+with open("{{[reverse_to_root, readme_path] | path_join}}", "r") as stream:
     html = re.sub(
         "<h1.*>.*?</h1>",
         "",
@@ -80,6 +80,6 @@ with open("{{[project_root, readme_name] | path_join}}", "r") as stream:
         flags=re.DOTALL
     )
 
-with open("{{readme_name.replace(".md", ".html")}}", "w") as stream:
+with open("{{readme_path.replace(".md", ".html")}}", "w") as stream:
     stream.write(html)
 {% endif %}
