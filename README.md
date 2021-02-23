@@ -37,7 +37,7 @@ Settings input file:
 
 ```yml
 project: Quickdocs
-version: 1.0.0
+version: 1.1.0
 author: Joel Lefkowitz
 html_title: Quickdocs
 github_url: JoelLefkowitz/quickdocs
