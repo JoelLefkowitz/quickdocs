@@ -53,7 +53,7 @@ verbose_name: # Default: None
 
 ```yml
 markup_readme: # Default: True
-readme_name:   # Default: "README.md"
+readme_path:   # Default: "README.md"
 ```
 
 ```yml
