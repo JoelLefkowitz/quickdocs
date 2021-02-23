@@ -83,7 +83,6 @@ lib/
 lib64/
 libpeerconnection.log
 local_settings.py
-MANIFEST.*
 node_modules/
 nosetests.xml
 npm-debug.log
