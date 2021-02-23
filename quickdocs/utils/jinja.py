@@ -1,5 +1,5 @@
 import os
-from typing import Any, Dict, List
+from typing import Any, Dict
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
@@ -20,8 +20,8 @@ def parse_template(
         keep_trailing_newline=True,
         undefined=StrictUndefined,
     )
-    
-    env.filters['path_join'] = lambda paths: os.path.join(*paths)
+
+    env.filters["path_join"] = lambda paths: os.path.join(*paths)
 
     with open(output_path, "w") as stream:
         stream.write(

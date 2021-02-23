@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import os
 from dataclasses import dataclass
 from typing import Dict, Optional, Set, get_type_hints
@@ -20,12 +21,12 @@ class Inputs:
     author: str
     html_title: str
     github_url: str
-    
+
     # Defaults for templating
-    debug: bool = False    
+    debug: bool = False
     project_root: str = os.getcwd()
     verbose_name: Optional[str] = None
-    
+
     # Readme settings
     markup_readme: bool = True
     readme_name: str = "README.md"

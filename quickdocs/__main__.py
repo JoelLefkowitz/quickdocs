@@ -1,23 +1,29 @@
 import os
 import shutil
-import sys
 from argparse import ArgumentParser
+
 from walkmate import get_child_files
 
 from .state.inputs import Inputs
 from .state.paths import Paths
 from .utils.dicts import merge_dicts
 from .utils.jinja import parse_template
-from .utils.paths import create_parents, replace_ext, path_head
+from .utils.paths import create_parents, path_head, replace_ext
 
-templates_dir = os.path.normpath(os.path.join(__file__, "..", "templates"))
+templates_dir = os.path.normpath(
+    os.path.join(__file__, "..", "templates")
+)
 
 cli = ArgumentParser("Quickdocs")
 cli.add_argument("input", help="Input file path")
-cli.add_argument("--output-dir", help="Output directory", default=os.path.join(os.getcwd(), "docs"))
+cli.add_argument(
+    "--output-dir",
+    help="Output directory",
+    default=os.path.join(os.getcwd(), "docs"),
+)
 
 
-if __name__ == "__main__":
+def main() -> None:
     args = cli.parse_args()
     inputs = Inputs.from_file(args.input)
 
@@ -42,3 +48,7 @@ if __name__ == "__main__":
                 replace_ext(paths.output_path, ".rst"),
                 render_context,
             )
+
+
+if __name__ == "__main__":
+    main()
