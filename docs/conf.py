@@ -1,6 +1,7 @@
+import datetime
 import re
 import sys
-import datetime
+
 import pypandoc
 
 sys.path.append("..")
@@ -50,7 +51,7 @@ html_css_files = "static/styles.css"
 html_add_permalinks = ""
 html_theme_options = {
     "navbar_icon": "spin fa-book",
-    "github_url": "JoelLefkowitz/quickdocs"
+    "github_url": "JoelLefkowitz/quickdocs",
 }
 
 """
@@ -65,7 +66,7 @@ with open("../README.md", "r") as stream:
         "<h1.*>.*?</h1>",
         "",
         pypandoc.convert(stream.read(), "html", format="md"),
-        flags=re.DOTALL
+        flags=re.DOTALL,
     )
 
 with open("README.html", "w") as stream:

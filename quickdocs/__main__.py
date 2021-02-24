@@ -8,7 +8,12 @@ from .state.inputs import Inputs
 from .state.paths import Paths
 from .utils.dicts import merge_dicts
 from .utils.jinja import parse_template
-from .utils.paths import create_parents, path_head, replace_ext, reverse_to_root
+from .utils.paths import (
+    create_parents,
+    path_head,
+    replace_ext,
+    reverse_to_root,
+)
 
 templates_dir = os.path.normpath(
     os.path.join(__file__, "..", "templates")
@@ -58,7 +63,6 @@ def main() -> None:
                 replace_ext(paths.output_path, ".rst"),
                 render_context,
             )
-
 
 
 if __name__ == "__main__":
