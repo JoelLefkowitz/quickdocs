@@ -4,12 +4,15 @@ Creates HTML docs from a project's readme and sphinx-apidoc
 
 ## Status
 
-| Source  | Shields                                                        |
-| ------- | -------------------------------------------------------------- |
-| Project | ![license][license] ![release][release]                        |
-| Raised  | [![issues][issues]][issues_link] [![pulls][pulls]][pulls_link] |
+| Source     | Shields                                                                                                            |
+| ---------- | ------------------------------------------------------------------------------------------------------------------ |
+| Project    | ![release][release_shield] ![license][license_shield]  ![dependents][dependents_shield]                            |
+| Health     | ![travis][travis_shield] ![codacy][codacy_shield] ![coverage][coverage_shield] ![readthedocs][readthedocs_shield]  |
+| Repository | ![issues][issues_shield] ![pulls][pulls_shield]                                                                    |
+| Publishers | ![pypi][pypi_shield] ![python_versions][python_versions_shield] ![pypi_downloads][pypi_downloads_shield]           |
+| Activity   | ![contributors][contributors_shield] ![monthly_commits][monthly_commits_shield] ![last_commit][last_commit_shield] |
 
-## Installing
+## Installation
 
 ```bash
 pip install quickdocs
@@ -113,7 +116,7 @@ tox
 
 ## Documentation
 
-Please view our [documentation][documentation] available on readthedocs.
+Please view our [documentation][readthedocs] available on readthedocs.
 
 To build locally generate the sphinx configuration:
 
@@ -127,9 +130,31 @@ Then build the documentation:
 sphinx-build -E docs build
 ```
 
+## Tooling
+
+We use grunt to run local tooling before committing code:
+
+### Linting
+
+```bash
+grunt lint
+```
+
+### Formatting
+
+```bash
+grunt format
+```
+
+Documentation and coverage reports should be regenerated before commiting any new code.
+
 ## Changelog
 
 Please read [CHANGELOG.md](CHANGELOG.md) for details on changes that have been made.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Versioning
 
@@ -144,30 +169,42 @@ bump2version patch
 
 Releases are made on every minor change.
 
-## Author
-
--   **Joel Lefkowitz** - _Initial work_ - [Joel Lefkowitz][author]
-
-See also the list of contributors who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
-## Acknowledgments
+## Contributors
 
-None yet!
+- **Joel Lefkowitz** - _Initial work_ - [Joel Lefkowitz][joellefkowitz]
 
-[license]: https://img.shields.io/github/license/joellefkowitz/quickdocs
-[release]: https://img.shields.io/github/v/tag/joellefkowitz/quickdocs
-[issues]: https://img.shields.io/github/issues/joellefkowitz/quickdocs "Issues"
-[pulls]: https://img.shields.io/github/issues-pr/joellefkowitz/quickdocs "Pull requests"
-[pulls_link]: https://github.com/JoelLefkowitz/quickdocs/pulls
-[issues_link]: https://github.com/JoelLefkowitz/quickdocs/issues
-[documentation]: https://joellefkowitz-quickdocs.readthedocs.io/en/latest/
-[author]: https://github.com/JoelLefkowitz
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/default-blue.png)][coffee]
+
+<!-- Github links -->
+[pulls]: https://github.com/JoelLefkowitz/quickdocs/pulls
+[issues]: https://github.com/JoelLefkowitz/quickdocs/issues
+
+<!-- External links -->
+[pypi]: https://pypi.org/project/randutils
+[readthedocs]: https://joellefkowitz-quickdocs.readthedocs.io/en/latest/
 [semver]: http://semver.org/
+[coffee]: https://www.buymeacoffee.com/joellefkowitz
+
+<!-- Acknowledgments -->
+[joellefkowitz]: https://github.com/JoelLefkowitz
+
+<!-- Shields -->
+[release_shield]: https://img.shields.io/github/v/tag/joellefkowitz/quickdocs
+[license_shield]: https://img.shields.io/github/license/joellefkowitz/quickdocs
+[dependents_shield]: https://img.shields.io/librariesio/dependent-repos/pypi/quickdocs
+[travis_shield]: https://img.shields.io/travis/joellefkowitz/quickdocs
+[codacy_shield]: https://img.shields.io/codacy/coverage/quickdocs
+[coverage_shield]: https://img.shields.io/codacy/grade/quickdocs
+[readthedocs_shield]: https://img.shields.io/readthedocs/joellefkowitz-quickdocs
+[issues_shield]: https://img.shields.io/github/issues/joellefkowitz/quickdocs
+[pulls_shield]: https://img.shields.io/github/issues-pr/joellefkowitz/quickdocs
+[pypi_shield]: https://img.shields.io/pypi/v/randutils
+[python_versions_shield]: https://img.shields.io/pypi/pyversions/quickdocs
+[pypi_downloads_shield]: https://img.shields.io/pypi/dw/randutils
+[contributors_shield]: https://img.shields.io/github/contributors/joellefkowitz/quickdocs
+[monthly_commits_shield]: https://img.shields.io/github/commit-activity/m/joellefkowitz/quickdocs
+[last_commit_shield]: https://img.shields.io/github/last-commit/joellefkowitz/quickdocs
