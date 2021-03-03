@@ -1,6 +1,6 @@
 # Quickdocs
 
-Creates HTML docs from a project's readme and sphinx-apidoc
+Creates HTML docs from a project's readme and sphinx-apidoc.
 
 ## Status
 
@@ -47,14 +47,14 @@ github_url: JoelLefkowitz/quickdocs
 Optional settings:
 
 ```yml
-debug:        # Default: False
+debug: # Default: False
 project_root: # Default: os.getcwd()
 verbose_name: # Default: None
 ```
 
 ```yml
 markup_readme: # Default: True
-readme_path:   # Default: "README.md"
+readme_path: # Default: "README.md"
 ```
 
 ```yml
@@ -74,12 +74,12 @@ sphinx:
 formats: all
 
 python:
-   version: 3.8
-   install:
-      - method: pip
-        path: .
-        extra_requirements:
-            - docs
+  version: 3.8
+  install:
+    - method: pip
+      path: .
+      extra_requirements:
+        - docs
 ```
 
 Declare the sphinx dependencies:
