@@ -47,9 +47,9 @@ def main() -> None:
 
         create_parents(paths.output_path)
 
-        if paths.first_subdir == "static":
+        if paths.first_subdir == "static" or path_head(template_path) == "requirements.txt":
             shutil.copy(paths.template_path, paths.output_path)
-
+        
         elif path_head(template_path) == "conf.j2":
             parse_template(
                 paths.template_path,

@@ -76,32 +76,7 @@ formats: all
 python:
   version: 3.8
   install:
-    - method: pip
-      path: .
-      extra_requirements:
-        - docs
-```
-
-Declare the sphinx dependencies:
-
-**`setup.py`**:
-
-```python
-from setuptools import setup
-
-if __name__ == "__main__":
-    setup(
-        extras_require={
-            "docs": [
-                "pypandoc",
-                "sphinx",
-                "sphinxcontrib.apidoc",
-                "sphinxcontrib.pandoc_markdown",
-                "sphinx-autodoc-annotation",
-                "yummy_sphinx_theme",
-            ],
-        },
-    )
+    - requirements: docs/requirements.txt
 ```
 
 ## Tests
