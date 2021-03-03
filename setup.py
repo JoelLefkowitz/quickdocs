@@ -2,9 +2,7 @@ from setuptools import setup
 
 if __name__ == "__main__":
     setup(
-        entry_points={
-            "console_scripts": ["quickdocs = quickdocs.__main__:main"]
-        },
+        entry_points={"console_scripts": ["quickdocs = quickdocs.__main__:main"]},
         install_requires=[
             "pypandoc",
             "pyyaml",
@@ -19,15 +17,26 @@ if __name__ == "__main__":
             "yummy_sphinx_theme",
         ],
         extras_require={
-            "dist": ["wheel", "twine", "bump2version"],
             "tests": [
-                "tox",
-                "pytest",
+                "pytest-bdd",
                 "pytest-cov",
                 "pytest-html",
                 "pytest-sugar",
-                "pytest-bdd",
                 "pytest-watch",
+                "pytest",
+                "tox",
+            ],
+            "tools": [
+                "autoflake",
+                "bandit",
+                "black",
+                "bump2version",
+                "isort",
+                "mypy",
+                "pylint",
+                "quickdocs",
+                "twine",
+                "wheel",
             ],
         },
     )
