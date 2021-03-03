@@ -1,6 +1,18 @@
 # Changelog
 
-## [1.2.0] - TBD
+## [1.3.1] - 03/03/21
+
+### Changed
+
+- Remove quickdocs from docs/requirements.txt
+
+## [1.3.0] - 03/03/21
+
+### Added
+
+- Declare dependencies in docs/requirements.txt
+
+## [1.2.0] - 24/02/21
 
 ### Added
 

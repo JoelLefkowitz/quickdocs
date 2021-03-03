@@ -6,16 +6,15 @@ if __name__ == "__main__":
             "console_scripts": ["quickdocs = quickdocs.__main__:main"]
         },
         install_requires=[
-            "pypandoc",
-            "pyyaml",
-            "walkmate",
-            "simple_pipes",
-            "sphinx",
             "pyimport",
             "pypandoc",
+            "pyyaml",
+            "simple_pipes",
+            "sphinx-autodoc-annotation",
+            "sphinx",
             "sphinxcontrib.apidoc",
             "sphinxcontrib.pandoc_markdown",
-            "sphinx-autodoc-annotation",
+            "walkmate",
             "yummy_sphinx_theme",
         ],
         extras_require={
