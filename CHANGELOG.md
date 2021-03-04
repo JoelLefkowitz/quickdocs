@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0] - 04/03/21
+
+### Changed
+
+- Correct html_static_path to point sphinx to the css files
+- Add pandoc flag -fmarkdown-implicit_figures to remove redundant captions
+
 ## [1.3.1] - 03/03/21
 
 ### Changed
