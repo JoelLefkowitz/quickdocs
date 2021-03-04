@@ -189,8 +189,8 @@ Lots of love to the open source community!
 <!-- Health shields -->
 
 [travis_shield]: https://img.shields.io/travis/joellefkowitz/quickdocs
-[codacy_shield]: https://img.shields.io/codacy/coverage/quickdocs
-[coverage_shield]: https://img.shields.io/codacy/grade/quickdocs
+[codacy_shield]: https://img.shields.io/codacy/coverage/d2067acdcb594c47b8a63d5291c6612c
+[coverage_shield]: https://img.shields.io/codacy/grade/d2067acdcb594c47b8a63d5291c6612c
 [readthedocs_shield]: https://img.shields.io/readthedocs/joellefkowitz-quickdocs
 
 <!-- Repository shields -->
