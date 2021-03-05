@@ -61,6 +61,7 @@ celerybeat-schedule/
 celerybeat.pid
 chrome-profiler-events*.json
 connect.lock
+cov.xml
 coverage.xml
 coverage/
 develop-eggs/
