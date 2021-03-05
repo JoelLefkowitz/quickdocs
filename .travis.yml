@@ -6,15 +6,26 @@ jobs:
     - stage: Linters
       script: grunt lint
       install:
-        - pip install .[tools]
         - npm install
+        - pip install .[tools]
 
-    - stage: Tests
+    - stage: Unit tests
+      script:
+        - grunt tests:unit
+      install:
+        - npm install
+        - pip install .[tests]
+      python:
+        - "3.6"
+        - "3.7"
+        - "3.8"
+
+    - stage: Test coverage
       script:
         - grunt tests:coverage
       install:
-        - pip install .[tests]
         - npm install
+        - pip install .[tests]
       before_script:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh) download
       after_success:
@@ -25,8 +36,8 @@ jobs:
     - stage: Docs
       script: grunt docs:build
       install:
-        - pip install -r docs/requirements.txt
         - npm install
+        - pip install -r docs/requirements.txt
 
 deploy:
   provider: pypi
