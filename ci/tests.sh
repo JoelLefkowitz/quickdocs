@@ -3,4 +3,4 @@
 set -e
 
 # Check unit tests pass
-grunt test:unit
+grunt tests:unit
