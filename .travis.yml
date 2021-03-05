@@ -1,9 +1,8 @@
 language: python
 
-# Install grunt for our ci scripts
+# Grunt will be installed in stages
+# who's ci scripts depend on it
 node_js: "7"
-install:
-  - npm install
 
 jobs:
   include:
@@ -11,11 +10,13 @@ jobs:
       script: ci/quality.sh
       install:
         - pip install .[tools]
+        - npm install
 
     - stage: Tests
       script: ci/tests.sh
       install:
         - pip install .[tests]
+        - npm install
 
     - stage: Docs
       script: ci/docs.sh
@@ -23,6 +24,7 @@ jobs:
       # This is the requirements file readthedocs is set to use
       install:
         - pip install -r docs/requirements.txt
+        - npm install
 
 deploy:
   provider: pypi

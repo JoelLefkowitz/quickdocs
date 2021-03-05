@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 # Check linters pass
 grunt lint
 
