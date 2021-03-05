@@ -1,10 +1,5 @@
 language: python
-
-python:
-  - "3.6"
-  - "3.7"
-  - "3.8"
-
+python: "3.8"
 node_js: "7"
 
 jobs:
@@ -14,16 +9,22 @@ jobs:
       install:
         - npm install
         - pip install .[tools]
-      if:
-        python == "3.8"
-
-    - stage: Unit tests
+    
+    - &unittest
+      stage: Unit tests
+      python: 3.6
       script:
         - grunt tests:unit
       install:
         - npm install
         - pip install .[tests]
-      
+
+    - <<: *unittest
+      python: 3.7
+    
+    - <<: *unittest
+      python: 3.8
+
     - stage: Test coverage
       script:
         - grunt tests:coverage
