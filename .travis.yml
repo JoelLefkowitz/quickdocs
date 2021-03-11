@@ -1,6 +1,8 @@
 language: python
 
 python: "3.8"
+cache: pip
+
 node_js: "7"
 
 jobs:
