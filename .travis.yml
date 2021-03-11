@@ -1,4 +1,5 @@
 language: python
+
 python: "3.8"
 node_js: "7"
 
@@ -36,20 +37,43 @@ jobs:
       after_success:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
       env:
-        secure: X5xjCkeykEJe04BRDaEtkDvhhTVOaZDLC78tymVu0N1BYKCtlKE1qRuodyEacTgSX8dTpB/UKlm3RE4hF+AsnsIsGJKYrgdgxOt0LGvEIcw5C9xl2uXqkb3ZdQFcy90OwvU/Sw7dIRDyt2apt8RuwRj/1/Do8Kw1419czITKEhZilumpzn+tYl8/8+1+1Vqg4NzXfVtntKkoC9gvH4axKX4bwJINhWSXBmNR2z6KQfm5wHzq8H9rgSY7rTovpOXNMyieZHtQL52cTXqoacW+o2bvAvbxxKwHw+grCuKbGniGGTAaiN4QjpuDJJQZm2Z2g1349nJNv88hlNNqOhHjgasSmfaFcmcXu9jD+2Q9KbmmCVO30yYOsQKLjBTMatjwgPVxtVYlcsfitQdcnoaowE2WIXyInvLneszqfyTa796VMUg3NRahQXHYYvKCuJSGbf+JuvnAxPJwwVdUdFtR6eAiP1gDtL7bE6mjgiACffKqjBDgNXz1zIb5xsiG86DuN4qe1BlCYUzN/gyxp2H5FGmFRH3PiOvv0UBe1hu+BaoDN1qWCWsCQ2kcDh3islklREG0wkPteOQLh5jxwaFIxNS+f5AgOVZeq1xkxW8c4ehLTdMwHHzji8gA+1/NMXya3dw2UO60H2yTkMjNLfnAbbT8hQCXcA6/MnrOPSTMhP4=
-
-      
+        secure: >-
+          X5xjCkeykEJe04BRDaEtkDvhhTVOaZDLC78tymVu0N1BYKCtlKE1qRuodyEacTgSX8dTp
+          B/UKlm3RE4hF+AsnsIsGJKYrgdgxOt0LGvEIcw5C9xl2uXqkb3ZdQFcy90OwvU/Sw7dIR
+          Dyt2apt8RuwRj/1/Do8Kw1419czITKEhZilumpzn+tYl8/8+1+1Vqg4NzXfVtntKkoC9g
+          vH4axKX4bwJINhWSXBmNR2z6KQfm5wHzq8H9rgSY7rTovpOXNMyieZHtQL52cTXqoacW+
+          o2bvAvbxxKwHw+grCuKbGniGGTAaiN4QjpuDJJQZm2Z2g1349nJNv88hlNNqOhHjgasSm
+          faFcmcXu9jD+2Q9KbmmCVO30yYOsQKLjBTMatjwgPVxtVYlcsfitQdcnoaowE2WIXyInv
+          LneszqfyTa796VMUg3NRahQXHYYvKCuJSGbf+JuvnAxPJwwVdUdFtR6eAiP1gDtL7bE6m
+          jgiACffKqjBDgNXz1zIb5xsiG86DuN4qe1BlCYUzN/gyxp2H5FGmFRH3PiOvv0UBe1hu+
+          BaoDN1qWCWsCQ2kcDh3islklREG0wkPteOQLh5jxwaFIxNS+f5AgOVZeq1xkxW8c4ehLT
+          dMwHHzji8gA+1/NMXya3dw2UO60H2yTkMjNLfnAbbT8hQCXcA6/MnrOPSTMhP4=
+    
     - stage: Docs
-      script: grunt docs:build
+      script: 'grunt docs:build'
       install:
         - npm install
         - pip install -r docs/requirements.txt
+      addons:
+        apt:
+          packages:
+            - pandoc
 
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   username: joellefkowitz
   password:
-    secure: fbaBrbBl6mJf54iV2LR/wskFZRGn1ftlgt+BCCGsdF2eDrASnQaszS/IM4PXd4bsUalAPcxcbGC0lEAqiDgZneKlSYvHps1oy6ypymq7JLHKW/iQ3bBeXvT2QEaUgg5LqjX2CIlhSgiY2mVa6gQt1BwlutJatM3sJ6yvBQu+3vVWpwWohfTqjPmt1FdR9WWz5/sviDFyHYnGSRmgQUkcyfnKHZ4/UtEiLynVC1RVNzb+aAOCp2M2lW+A2SBiKMISzbkvgL/pO9f8ceHInUhY+oZJ/wzMa1hyF+Dlo7ut3LywFNrFdheP5r/1lTusR5UYXKncsiCLCyRujal8hOAnUaHkP+XGm+QLULKOGG2qkxmasO7lRXSbYgQGEGoKQNsiwjqJN3AbofIL1FIw/2IYFia/bkvhZCyBLUAHoCJ0BgNF/kvYBDzBDR2b6r8GjG2OREL+tkgAAsHauRgYKfkP738Qqj8UEnQ+Xrtnm+zOw86AuYD4xx3DHS2qAzsnhEs4nVp6WvLSB4PqOzzLZmG73zQZgKTTGIs7kgtnIZBR+3gIQCFIUAaeV9rzNmED0eKt8qLtC4gXFLx5aqzM2hOnuuKII+Ueiz8ZPbjFXrE7VmpCr0KfJaxu4UcqgSjJY5OI9f3EGJsJIC7O1fkrNCNPH0UUTZM0fM9OlxUNPs8qp1I=
-  on:
+    secure: >-
+      fbaBrbBl6mJf54iV2LR/wskFZRGn1ftlgt+BCCGsdF2eDrASnQaszS/IM4PXd4bsUalAPcxcb
+      GC0lEAqiDgZneKlSYvHps1oy6ypymq7JLHKW/iQ3bBeXvT2QEaUgg5LqjX2CIlhSgiY2mVa6g
+      Qt1BwlutJatM3sJ6yvBQu+3vVWpwWohfTqjPmt1FdR9WWz5/sviDFyHYnGSRmgQUkcyfnKHZ4
+      /UtEiLynVC1RVNzb+aAOCp2M2lW+A2SBiKMISzbkvgL/pO9f8ceHInUhY+oZJ/wzMa1hyF+Dl
+      o7ut3LywFNrFdheP5r/1lTusR5UYXKncsiCLCyRujal8hOAnUaHkP+XGm+QLULKOGG2qkxmas
+      O7lRXSbYgQGEGoKQNsiwjqJN3AbofIL1FIw/2IYFia/bkvhZCyBLUAHoCJ0BgNF/kvYBDzBDR
+      2b6r8GjG2OREL+tkgAAsHauRgYKfkP738Qqj8UEnQ+Xrtnm+zOw86AuYD4xx3DHS2qAzsnhEs
+      4nVp6WvLSB4PqOzzLZmG73zQZgKTTGIs7kgtnIZBR+3gIQCFIUAaeV9rzNmED0eKt8qLtC4gX
+      FLx5aqzM2hOnuuKII+Ueiz8ZPbjFXrE7VmpCr0KfJaxu4UcqgSjJY5OI9f3EGJsJIC7O1fkrN
+      CNPH0UUTZM0fM9OlxUNPs8qp1I=
+  'on':
     tags: true
