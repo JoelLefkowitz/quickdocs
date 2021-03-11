@@ -35,6 +35,9 @@ jobs:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh) download
       after_success:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+      env:
+        secure: X5xjCkeykEJe04BRDaEtkDvhhTVOaZDLC78tymVu0N1BYKCtlKE1qRuodyEacTgSX8dTpB/UKlm3RE4hF+AsnsIsGJKYrgdgxOt0LGvEIcw5C9xl2uXqkb3ZdQFcy90OwvU/Sw7dIRDyt2apt8RuwRj/1/Do8Kw1419czITKEhZilumpzn+tYl8/8+1+1Vqg4NzXfVtntKkoC9gvH4axKX4bwJINhWSXBmNR2z6KQfm5wHzq8H9rgSY7rTovpOXNMyieZHtQL52cTXqoacW+o2bvAvbxxKwHw+grCuKbGniGGTAaiN4QjpuDJJQZm2Z2g1349nJNv88hlNNqOhHjgasSmfaFcmcXu9jD+2Q9KbmmCVO30yYOsQKLjBTMatjwgPVxtVYlcsfitQdcnoaowE2WIXyInvLneszqfyTa796VMUg3NRahQXHYYvKCuJSGbf+JuvnAxPJwwVdUdFtR6eAiP1gDtL7bE6mjgiACffKqjBDgNXz1zIb5xsiG86DuN4qe1BlCYUzN/gyxp2H5FGmFRH3PiOvv0UBe1hu+BaoDN1qWCWsCQ2kcDh3islklREG0wkPteOQLh5jxwaFIxNS+f5AgOVZeq1xkxW8c4ehLTdMwHHzji8gA+1/NMXya3dw2UO60H2yTkMjNLfnAbbT8hQCXcA6/MnrOPSTMhP4=
+
       
     - stage: Docs
       script: grunt docs:build
@@ -50,7 +53,3 @@ deploy:
     secure: fbaBrbBl6mJf54iV2LR/wskFZRGn1ftlgt+BCCGsdF2eDrASnQaszS/IM4PXd4bsUalAPcxcbGC0lEAqiDgZneKlSYvHps1oy6ypymq7JLHKW/iQ3bBeXvT2QEaUgg5LqjX2CIlhSgiY2mVa6gQt1BwlutJatM3sJ6yvBQu+3vVWpwWohfTqjPmt1FdR9WWz5/sviDFyHYnGSRmgQUkcyfnKHZ4/UtEiLynVC1RVNzb+aAOCp2M2lW+A2SBiKMISzbkvgL/pO9f8ceHInUhY+oZJ/wzMa1hyF+Dlo7ut3LywFNrFdheP5r/1lTusR5UYXKncsiCLCyRujal8hOAnUaHkP+XGm+QLULKOGG2qkxmasO7lRXSbYgQGEGoKQNsiwjqJN3AbofIL1FIw/2IYFia/bkvhZCyBLUAHoCJ0BgNF/kvYBDzBDR2b6r8GjG2OREL+tkgAAsHauRgYKfkP738Qqj8UEnQ+Xrtnm+zOw86AuYD4xx3DHS2qAzsnhEs4nVp6WvLSB4PqOzzLZmG73zQZgKTTGIs7kgtnIZBR+3gIQCFIUAaeV9rzNmED0eKt8qLtC4gXFLx5aqzM2hOnuuKII+Ueiz8ZPbjFXrE7VmpCr0KfJaxu4UcqgSjJY5OI9f3EGJsJIC7O1fkrNCNPH0UUTZM0fM9OlxUNPs8qp1I=
   on:
     tags: true
-
-env:
-  global:
-    secure: a2Qxb3qE6eVECJl1UHbJ1s7gPkMnh6rpB6VTXuNfrDVtiR09FV4H0dOmCTdCPuQ66ctPqLpSYTzvgfjgAA9wDcEr0/+CZiKyNsw04Gzt32m4M32P+VCQBR/PXQQaYeRbolTOaIew4gJxAIgSoDM4dzdl6jE89eWoMDMs/UJaH47h/en6DXKI4LQODgQghuP/Wd7jWd4LoInqtrR2lHZZH32treRb0sWUV4lLZJz77K6AMcEvNTVSWSXNcXOyFwNwuVwRIiXMJ4NuVRMb5pSD3e04oIGFms7tmW4FLPLp/lgcEtpBZevxVlX7fGKjLq1TBA9cf8mPHM6X5wH3xt2GhH28mQjQ+PzWc3PFAaNnd3TbAvqWtOAb0WbpKuMDnyzcO1rjJdGThS+QanGETTDOJa9RVxWDn82DmRVr2PxlDSf6Jb1lv4q6QbiBttcVLgZcrcjKVzhEN9kh9abV9FrYWO75da8RidqXeUhd3/EB0nrpZPmXKPhqum/Wqh1SL9Vy6aOMYvAf/AsPYmfF9xxkTP5cnh2hD68tglBV9qXt5eqhz5/Us0xRLv50iSs+z70bFuAC8ITFQdQIAsYAu55omc56EiF4lW1Fbjca51nkc8RxM0hzsludFNwBmFcvmQ9jn4FUbJXy67NWkNTqTdVRM2OkK7oaRCtEYomkgPyTrkg=

@@ -66,7 +66,7 @@ with open("../README.md", "r") as stream:
         stream.read(),
         "html",
         format="md",
-        extra_args=["-fmarkdown-implicit_figures"],
+        extra_args=["-s", "-fmarkdown-implicit_figures"],
     )
     headerless_readme = re.sub(
         "<h1.*>.*?</h1>", "", html_readme, flags=re.DOTALL

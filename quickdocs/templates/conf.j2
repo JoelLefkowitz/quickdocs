@@ -73,7 +73,13 @@ copyright = f"{datetime.datetime.now().year} {author}"
 {% if markup_readme %}
 
 with open("{{[reverse_to_root, readme_path] | path_join}}", "r") as stream:
-    html_readme = pypandoc.convert(stream.read(), "html", format="md", extra_args=["-fmarkdown-implicit_figures"])
+    html_readme = pypandoc.convert(
+        stream.read(),
+        "html",
+        format="md",
+        extra_args=["-s", "-fmarkdown-implicit_figures"]
+    )
+    
     headerless_readme = re.sub("<h1.*>.*?</h1>", "", html_readme, flags=re.DOTALL)
 
 with open("{{readme_path.replace(".md", ".html")}}", "w") as stream:
