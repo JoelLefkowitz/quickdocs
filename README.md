@@ -4,13 +4,13 @@ Creates HTML docs from a project's readme and sphinx-apidoc.
 
 ## Status
 
-| Source     | Shields                                                                                                            |
-| ---------- | ------------------------------------------------------------------------------------------------------------------ |
-| Project    | ![release][release_shield] ![license][license_shield] ![dependents][dependents_shield]                             |
-| Health     | ![travis][travis_shield] ![codacy][codacy_shield] ![coverage][coverage_shield] ![readthedocs][readthedocs_shield]  |
-| Repository | ![issues][issues_shield] ![pulls][pulls_shield]                                                                    |
-| Publishers | ![pypi][pypi_shield] ![python_versions][python_versions_shield] ![pypi_downloads][pypi_downloads_shield]           |
-| Activity   | ![contributors][contributors_shield] ![monthly_commits][monthly_commits_shield] ![last_commit][last_commit_shield] |
+| Source     | Shields                                                                                                                     |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Project    | ![release][release_shield] ![license][license_shield] ![lines][lines_shield] ![languages][languages_shield]                 |
+| Health     | ![codacy][codacy_shield] ![readthedocs][readthedocs_shield] ![travis][travis_shield]                                        |
+| Repository | ![issues][issues_shield] ![issues_closed][issues_closed_shield] ![pulls][pulls_shield] ![pulls_closed][pulls_closed_shield] |
+| Publishers | ![pypi][pypi_shield] ![python_versions][python_versions_shield] ![pypi_downloads][pypi_downloads_shield]                    |
+| Activity   | ![contributors][contributors_shield] ![monthly_commits][monthly_commits_shield] ![last_commit][last_commit_shield]          |
 
 ## Installation
 
@@ -78,6 +78,10 @@ python:
   install:
     - requirements: docs/requirements.txt
 ```
+
+### Remvoing old documentation
+
+The sphinx-apidoc plugin generates documentation under docs/api. When running, the sphinx plugin will overwrite but not delete out of date files in this directory. This means if you rename a module you must delete the out of date documentation. This pacakge should not delete the docs/api directory because some developers will add custom documentation to this directory as they write new modules.
 
 ## Tests
 
@@ -184,19 +188,21 @@ Lots of love to the open source community!
 
 [release_shield]: https://img.shields.io/github/v/tag/joellefkowitz/quickdocs
 [license_shield]: https://img.shields.io/github/license/joellefkowitz/quickdocs
-[dependents_shield]: https://img.shields.io/librariesio/dependent-repos/pypi/quickdocs
+[lines_shield]: https://img.shields.io/tokei/lines/github/joellefkowitz/quickdocs
+[languages_shield]: https://img.shields.io/github/languages/count/joellefkowitz/quickdocs
 
 <!-- Health shields -->
 
-[travis_shield]: https://img.shields.io/travis/joellefkowitz/quickdocs
-[codacy_shield]: https://img.shields.io/codacy/coverage/d2067acdcb594c47b8a63d5291c6612c
-[coverage_shield]: https://img.shields.io/codacy/grade/d2067acdcb594c47b8a63d5291c6612c
+[codacy_shield]: https://img.shields.io/codacy/grade/d2067acdcb594c47b8a63d5291c6612c
 [readthedocs_shield]: https://img.shields.io/readthedocs/joellefkowitz-quickdocs
+[travis_shield]: https://img.shields.io/travis/com/joellefkowitz/quickdocs
 
 <!-- Repository shields -->
 
 [issues_shield]: https://img.shields.io/github/issues/joellefkowitz/quickdocs
+[issues_closed_shield]: https://img.shields.io/github/issues-closed/joellefkowitz/quickdocs
 [pulls_shield]: https://img.shields.io/github/issues-pr/joellefkowitz/quickdocs
+[pulls_closed_shield]: https://img.shields.io/github/issues-pr-closed/joellefkowitz/quickdocs
 
 <!-- Publishers shields -->
 

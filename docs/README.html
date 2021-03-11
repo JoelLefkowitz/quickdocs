@@ -85,8 +85,8 @@
 <h2 id="status">Status</h2>
 <table>
 <colgroup>
-<col style="width: 8%" />
-<col style="width: 91%" />
+<col style="width: 7%" />
+<col style="width: 92%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -97,15 +97,15 @@
 <tbody>
 <tr class="odd">
 <td>Project</td>
-<td><img src="https://img.shields.io/github/v/tag/joellefkowitz/quickdocs" alt="release" /> <img src="https://img.shields.io/github/license/joellefkowitz/quickdocs" alt="license" /> <img src="https://img.shields.io/librariesio/dependent-repos/pypi/quickdocs" alt="dependents" /></td>
+<td><img src="https://img.shields.io/github/v/tag/joellefkowitz/quickdocs" alt="release" /> <img src="https://img.shields.io/github/license/joellefkowitz/quickdocs" alt="license" /> <img src="https://img.shields.io/tokei/lines/github/joellefkowitz/quickdocs" alt="lines" /> <img src="https://img.shields.io/github/languages/count/joellefkowitz/quickdocs" alt="languages" /></td>
 </tr>
 <tr class="even">
 <td>Health</td>
-<td><img src="https://img.shields.io/travis/joellefkowitz/quickdocs" alt="travis" /> <img src="https://img.shields.io/codacy/coverage/d2067acdcb594c47b8a63d5291c6612c" alt="codacy" /> <img src="https://img.shields.io/codacy/grade/d2067acdcb594c47b8a63d5291c6612c" alt="coverage" /> <img src="https://img.shields.io/readthedocs/joellefkowitz-quickdocs" alt="readthedocs" /></td>
+<td><img src="https://img.shields.io/codacy/grade/d2067acdcb594c47b8a63d5291c6612c" alt="codacy" /> <img src="https://img.shields.io/readthedocs/joellefkowitz-quickdocs" alt="readthedocs" /> <img src="https://img.shields.io/travis/com/joellefkowitz/quickdocs" alt="travis" /></td>
 </tr>
 <tr class="odd">
 <td>Repository</td>
-<td><img src="https://img.shields.io/github/issues/joellefkowitz/quickdocs" alt="issues" /> <img src="https://img.shields.io/github/issues-pr/joellefkowitz/quickdocs" alt="pulls" /></td>
+<td><img src="https://img.shields.io/github/issues/joellefkowitz/quickdocs" alt="issues" /> <img src="https://img.shields.io/github/issues-closed/joellefkowitz/quickdocs" alt="issues_closed" /> <img src="https://img.shields.io/github/issues-pr/joellefkowitz/quickdocs" alt="pulls" /> <img src="https://img.shields.io/github/issues-pr-closed/joellefkowitz/quickdocs" alt="pulls_closed" /></td>
 </tr>
 <tr class="even">
 <td>Publishers</td>
@@ -151,6 +151,8 @@
 <span id="cb8-9"><a href="#cb8-9"></a><span class="at">  </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="fl">3.8</span></span>
 <span id="cb8-10"><a href="#cb8-10"></a><span class="at">  </span><span class="fu">install</span><span class="kw">:</span></span>
 <span id="cb8-11"><a href="#cb8-11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">requirements</span><span class="kw">:</span><span class="at"> docs/requirements.txt</span></span></code></pre></div>
+<h3 id="remvoing-old-documentation">Remvoing old documentation</h3>
+<p>The sphinx-apidoc plugin generates documentation under docs/api. When running, the sphinx plugin will overwrite but not delete out of date files in this directory. This means if you rename a module you must delete the out of date documentation. This pacakge should not delete the docs/api directory because some developers will add custom documentation to this directory as they go along.</p>
 <h2 id="tests">Tests</h2>
 <p>To run unit tests:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">grunt</span> tests:unit</span></code></pre></div>
