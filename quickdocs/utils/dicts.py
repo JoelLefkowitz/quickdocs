@@ -1,9 +1,7 @@
-from typing import Any, Dict
-
-AnyDict = Dict[Any, Any]
+from typing import Any, Dict, Mapping
 
 
-def merge_dicts(*args: AnyDict) -> Dict:
+def merge_dicts(*args: Mapping[Any, Any]) -> Dict[Any, Any]:
     """
     Successively merge any number of dictionaries.
 
@@ -16,7 +14,7 @@ def merge_dicts(*args: AnyDict) -> Dict:
     Returns:
         Dict: Dictionary of merged inputs.
     """
-    out = {}  # type: AnyDict
+    out = {}  # type: Dict[Any, Any]
     for dct in args:
         out = {**out, **dct}
     return out

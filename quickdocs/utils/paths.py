@@ -71,14 +71,48 @@ def path_ext(path: str) -> str:
 
 
 def replace_ext(path: str, ext: str) -> str:
+    """
+    Replace a path's extension with another.
+
+    >>> replace_ext('/dir1/dir2/path.ext', '.ext2')
+    '/dir1/dir2/path.ext2'
+
+    Args:
+        path (str): Path string.
+        ext (str): New extension.
+
+    Returns:
+        str: Path string with new extension.
+    """
     return path.replace(os.path.splitext(path)[1], ext)
 
 
 def create_parents(path: str) -> None:
+    """
+    Create a path's parent directories.
+
+    Args:
+        path (str): Path string.
+    """
     Path(path_tail(path)).mkdir(parents=True, exist_ok=True)
 
 
 def reverse_to_root(project_root: str, output_dir: str) -> str:
+    """
+
+    Get the relative path required to move to a project's root from some output
+    directory.
+
+    >>> reverse_to_root('/dir1/dir2', '/dir1/dir3')
+    '../dir2'
+
+    Args:
+        project_root (str): Root path string.
+        output_dir (str): Directory path string.
+
+    Returns:
+        str: Path string.
+    """
     return os.path.relpath(
         project_root,
         os.path.realpath(output_dir),

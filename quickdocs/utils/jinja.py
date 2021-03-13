@@ -23,6 +23,7 @@ def parse_template(
         loader=FileSystemLoader(
             path_tail(template_path), encoding="utf-8"
         ),
+        autoescape=True,
         trim_blocks=True,
         lstrip_blocks=True,
         keep_trailing_newline=True,

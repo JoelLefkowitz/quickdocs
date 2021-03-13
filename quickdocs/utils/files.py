@@ -1,10 +1,10 @@
 import json
-from typing import Dict
+from typing import Dict, Any
 
 import yaml
 
 
-def parse_json(path: str) -> Dict:
+def parse_json(path: str) -> Dict[str, Any]:
     """
     Parse a json file.
 
@@ -18,7 +18,7 @@ def parse_json(path: str) -> Dict:
         return json.load(stream)
 
 
-def parse_yaml(path: str) -> Dict:
+def parse_yaml(path: str) -> Dict[str, Any]:
     """
     Parse a yaml file.
 

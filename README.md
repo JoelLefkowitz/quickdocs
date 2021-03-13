@@ -167,11 +167,6 @@ Lots of love to the open source community!
 
 ![Be kind][be_kind]
 
-<!-- Github links -->
-
-[pulls]: https://github.com/JoelLefkowitz/quickdocs/pulls
-[issues]: https://github.com/JoelLefkowitz/quickdocs/issues
-
 <!-- External links -->
 
 [readthedocs]: https://joellefkowitz-quickdocs.readthedocs.io/en/latest/
