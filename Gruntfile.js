@@ -6,7 +6,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     exec: {
       bandit: "bandit -r quickdocs",
-      cspell: "npx cspell -c .cspell.json *",
+      cspell: "npx cspell .",
       mypy: "mypy quickdocs",
       pylint: "pylint --rcfile .pylintrc quickdocs",
       quickdocs: "quickdocs .quickdocs.yml",
