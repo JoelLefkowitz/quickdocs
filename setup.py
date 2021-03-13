@@ -20,6 +20,7 @@ if __name__ == "__main__":
         ],
         extras_require={
             "tests": [
+                "coverage",
                 "pytest-bdd",
                 "pytest-cov",
                 "pytest-html",
