@@ -6,6 +6,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     exec: {
       bandit: "bandit -r quickdocs",
+      nodeVersion: "node --version",
       cspell: "npx cspell -c .cspell.json '{*,.*,**/*}'",
       mypy: "mypy quickdocs",
       pylint: "pylint --rcfile .pylintrc quickdocs",
@@ -19,6 +20,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-exec");
 
   grunt.registerTask("lint", [
+    "exec:nodeVersion",
     "exec:cspell",
     "exec:remark",
     "exec:pylint",
