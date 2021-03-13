@@ -4,13 +4,13 @@ Creates HTML docs from a project's readme and sphinx-apidoc.
 
 ## Status
 
-| Source     | Shields                                                                                                                     |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Project    | ![release][release_shield] ![license][license_shield] ![lines][lines_shield] ![languages][languages_shield]                 |
-| Health     | ![codacy][codacy_shield] ![readthedocs][readthedocs_shield] ![travis][travis_shield]                                        |
-| Repository | ![issues][issues_shield] ![issues_closed][issues_closed_shield] ![pulls][pulls_shield] ![pulls_closed][pulls_closed_shield] |
-| Publishers | ![pypi][pypi_shield] ![python_versions][python_versions_shield] ![pypi_downloads][pypi_downloads_shield]                    |
-| Activity   | ![contributors][contributors_shield] ![monthly_commits][monthly_commits_shield] ![last_commit][last_commit_shield]          |
+| Source     | Shields                                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Project    | ![release][release_shield] ![license][license_shield]  ![lines][lines_shield] ![languages][languages_shield]                    |
+| Health     | ![codacy][codacy_shield] ![readthedocs][readthedocs_shield] ![travis][travis_shield] ![codacy_coverage][codacy_coverage_shield] |
+| Repository | ![issues][issues_shield] ![issues_closed][issues_closed_shield] ![pulls][pulls_shield] ![pulls_closed][pulls_closed_shield]     |
+| Publishers | ![pypi][pypi_shield] ![python_versions][python_versions_shield] ![pypi_downloads][pypi_downloads_shield]                        |
+| Activity   | ![contributors][contributors_shield] ![monthly_commits][monthly_commits_shield] ![last_commit][last_commit_shield]              |
 
 ## Installation
 
@@ -79,22 +79,16 @@ python:
     - requirements: docs/requirements.txt
 ```
 
-### Remvoing old documentation
+### Removing old documentation
 
-The sphinx-apidoc plugin generates documentation under docs/api. When running, the sphinx plugin will overwrite but not delete out of date files in this directory. This means if you rename a module you must delete the out of date documentation. This pacakge should not delete the docs/api directory because some developers will add custom documentation to this directory as they write new modules.
+The sphinx-apidoc plugin generates documentation under docs/api. When running, the sphinx plugin will overwrite but not delete out of date files in this directory. This means if you rename a module you must delete the out of date documentation. This package should not delete the docs/api directory because some developers will add custom documentation to this directory as they write new modules.
 
 ## Tests
 
-To run unit tests:
+To run unit tests and generate a coverage report:
 
 ```bash
 grunt tests:unit
-```
-
-To generate a coverage report:
-
-```bash
-grunt tests:coverage
 ```
 
 ## Documentation
@@ -127,18 +121,24 @@ To run formatters:
 grunt format
 ```
 
-Before commiting new code:
+Before committing new code:
 
 ```bash
 grunt precommit
 ```
 
-This will run linters, formaters, generate a test coverage report and the sphinx configuration.
+This will run linters, formatters, tests, generate a test coverage report and the sphinx configuration.
+
+## Continuous integration
+
+This repository uses Travis CI to build and test each commit.
+lint, test, test-docs can be built, generate coverage
+formatting and writing/generating docs
 
 ## Versioning
 
 This repository adheres to semantic versioning standards.
-For more inforamtion on semantic versioning visit [SemVer][semver].
+For more information on semantic versioning visit [SemVer][semver].
 
 Bump2version is used to version and tag changes.
 For example:
@@ -196,6 +196,7 @@ Lots of love to the open source community!
 [codacy_shield]: https://img.shields.io/codacy/grade/d2067acdcb594c47b8a63d5291c6612c
 [readthedocs_shield]: https://img.shields.io/readthedocs/joellefkowitz-quickdocs
 [travis_shield]: https://img.shields.io/travis/com/joellefkowitz/quickdocs
+[codacy_coverage_shield]: https://img.shields.io/codacy/coverage/d2067acdcb594c47b8a63d5291c6612c
 
 <!-- Repository shields -->
 

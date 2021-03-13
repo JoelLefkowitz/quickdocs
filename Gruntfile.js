@@ -1,18 +1,34 @@
 function quit(name) {
   console.log("Task: '".concat(name, "' has not been implemented"));
 }
+
 module.exports = function (grunt) {
   grunt.initConfig({
     exec: {
-      lint: "echo \"Lint not implemented\"",
-      testsUnit: "tox",
-      testsCoverage: "pytest --cov=quickdocs tests/ --cov-report=xml:cov.xml",
-      docsBuild: "sphinx-build docs build",
+      bandit: "bandit -r quickdocs",
+      cspell: "cspell -c .cspell.json .* *",
+      mypy: "mypy quickdocs",
+      pylint: "pylint --rcfile .pylintrc quickdocs",
+      quickdocs: "quickdocs .quickdocs.yml",
+      remark: "npx remark -r .remarkrc .",
+      sphinx: "sphinx-build docs build",
+      tox: "tox",
     },
   });
+
   grunt.loadNpmTasks("grunt-exec");
-  grunt.registerTask("lint", "exec:lint");
-  grunt.registerTask("tests:unit", "exec:testsUnit");
-  grunt.registerTask("tests:coverage", "exec:testsCoverage");
-  grunt.registerTask("docs:build", "exec:docsBuild");
+  
+  grunt.registerTask("lint", [
+    "exec:cspell",
+    "exec:remark",
+    "exec:pylint",
+    "exec:bandit",
+    "exec:mypy",
+  ]);
+  
+  grunt.registerTask("tests:unit", "exec:tox");
+  grunt.registerTask("docs:generate", "exec:quickdocs");
+  grunt.registerTask("docs:build", "exec:sphinx");
+  grunt.registerTask("precommit", ["lint", "tests:unit", "docs:generate"]);
+  
 };

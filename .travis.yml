@@ -40,16 +40,16 @@ jobs:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
       env:
         secure: >-
-          X5xjCkeykEJe04BRDaEtkDvhhTVOaZDLC78tymVu0N1BYKCtlKE1qRuodyEacTgSX8dTp
-          B/UKlm3RE4hF+AsnsIsGJKYrgdgxOt0LGvEIcw5C9xl2uXqkb3ZdQFcy90OwvU/Sw7dIR
-          Dyt2apt8RuwRj/1/Do8Kw1419czITKEhZilumpzn+tYl8/8+1+1Vqg4NzXfVtntKkoC9g
-          vH4axKX4bwJINhWSXBmNR2z6KQfm5wHzq8H9rgSY7rTovpOXNMyieZHtQL52cTXqoacW+
-          o2bvAvbxxKwHw+grCuKbGniGGTAaiN4QjpuDJJQZm2Z2g1349nJNv88hlNNqOhHjgasSm
-          faFcmcXu9jD+2Q9KbmmCVO30yYOsQKLjBTMatjwgPVxtVYlcsfitQdcnoaowE2WIXyInv
-          LneszqfyTa796VMUg3NRahQXHYYvKCuJSGbf+JuvnAxPJwwVdUdFtR6eAiP1gDtL7bE6m
-          jgiACffKqjBDgNXz1zIb5xsiG86DuN4qe1BlCYUzN/gyxp2H5FGmFRH3PiOvv0UBe1hu+
-          BaoDN1qWCWsCQ2kcDh3islklREG0wkPteOQLh5jxwaFIxNS+f5AgOVZeq1xkxW8c4ehLT
-          dMwHHzji8gA+1/NMXya3dw2UO60H2yTkMjNLfnAbbT8hQCXcA6/MnrOPSTMhP4=
+          azswN6AXnY6C5WWuXK5z+v6zFbt5CLwY9Lbqt0w0kP4rxLPhnQB7iJQKvSacDiNt4DzGj
+          /RHUYw6bO5pO7xb30ptzbBNd+W+fbMk4uLtzW24SEuVUSc7xDZbglXM8qvawmc/yA+bzp
+          D6RrZHVwcb5/4efrllgHqah6WjShMaZzJVznVR+/eLfD+jU2R+52xK3mYYBCKsxdDZKi+
+          oUY8lV0Zs1xdcalHMAqb3mKWZ8zb2dBnsLkc13fbTo4QYeV2j9YmVDtPUZ4L+cj/nCM1R
+          SFt2gYoqshFMcplM2/+H+GreEpCrmbvi2mskZgl8hehIcr8w1jym3AcpCGRP9CvJ6Bazo
+          6xvEw3OdrtAzw/z/k4aHnmjiqGphAJ6S69kKHrKcPddAx15Is6l9/uSxBxlMktAyv8KLO
+          X1lUmOKx/IttdWjXQhzbZpvdiTAOTCbfzIggkws2kvCUjZ/HqE99/MUHt2QbWjSpqwB0n
+          uM7bMm9RP1mHcIUAu6Drrq24fFtlx/f/hGIINHcE2gQJrRETVMOPqDJNxnhAIyEh4y69M
+          3XtrqWZcNZ5vkQI0Rn6jwsyMaUkC2SuwBoolovWRpmi/bMl3QkL7hH9gq+1dNevJZVuSe
+          P75buxwLaJqgfp0yaIxISoG0Yj5H0B9AqfZV/zai5QoMq8RVFIQinZ6N15JPb8=
     
     - stage: Docs
       script: 'grunt docs:build'
@@ -64,18 +64,18 @@ jobs:
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
-  username: joellefkowitz
+  username: "__token__"
   password:
     secure: >-
-      fbaBrbBl6mJf54iV2LR/wskFZRGn1ftlgt+BCCGsdF2eDrASnQaszS/IM4PXd4bsUalAPcxcb
-      GC0lEAqiDgZneKlSYvHps1oy6ypymq7JLHKW/iQ3bBeXvT2QEaUgg5LqjX2CIlhSgiY2mVa6g
-      Qt1BwlutJatM3sJ6yvBQu+3vVWpwWohfTqjPmt1FdR9WWz5/sviDFyHYnGSRmgQUkcyfnKHZ4
-      /UtEiLynVC1RVNzb+aAOCp2M2lW+A2SBiKMISzbkvgL/pO9f8ceHInUhY+oZJ/wzMa1hyF+Dl
-      o7ut3LywFNrFdheP5r/1lTusR5UYXKncsiCLCyRujal8hOAnUaHkP+XGm+QLULKOGG2qkxmas
-      O7lRXSbYgQGEGoKQNsiwjqJN3AbofIL1FIw/2IYFia/bkvhZCyBLUAHoCJ0BgNF/kvYBDzBDR
-      2b6r8GjG2OREL+tkgAAsHauRgYKfkP738Qqj8UEnQ+Xrtnm+zOw86AuYD4xx3DHS2qAzsnhEs
-      4nVp6WvLSB4PqOzzLZmG73zQZgKTTGIs7kgtnIZBR+3gIQCFIUAaeV9rzNmED0eKt8qLtC4gX
-      FLx5aqzM2hOnuuKII+Ueiz8ZPbjFXrE7VmpCr0KfJaxu4UcqgSjJY5OI9f3EGJsJIC7O1fkrN
-      CNPH0UUTZM0fM9OlxUNPs8qp1I=
+      JVlzD2HdIFVcp/9pHQFlpX8DlLE71c1VqEq4wbeJzK9UI+kqK0sTGhG8jqd2yNEuQIWf8hppb
+      MY6WUCYAH7HY2wf1cjRPknWw/aB5zQB3+aFe4s0oEHNzkWRacBTyG/yENJEyh0QGWJxMcJ21x
+      V1v5s5u4XuV1PHvCqJCl4MZ/1JD7CUWvrdmoHIsVng3Nyjjng8yfuwWaCvkewT/0lmlISF7EM
+      Xhxu2j1YNnQRTs3SETjQkpovpdj67TJy/SNb8DJ8uV/2A6bQDxtd3C4YdpbkvvefTmLMfcbM2
+      pGrpPi8P69Y0ts9H9i79c+OP1mNxOSpSbIWGGPHIuI1TSD5bddiGUDQpFuIZ5gQghoBGsJ5+S
+      9suoMg0QyhF1wYFp0rlmgnMspBLJIO0nU3eRSjtilQQAc5mT9RmuB1y/iOFHnEUKgnFh4qE0Z
+      zec3AyvphUzQI2IY9533e5Y07trXI9k5InGd4jWXpyaC1PJizToYCtOsjcJW7yZtEuZ8cPlR9
+      XqROo4Edv7P1PWrqfGBtgQ1DA+3FCpn0BSb2SoNAZXLkZjicD82Bbc8INFabDkDIWW5Sn8EOH
+      BO1/CA8f8eoa/qZFhUPodGz83vO02n7aBHuiR8nacV/JwS938feM4R95zT7hOwp3rqfVoTW0z
+      MsaewpcVOnQr5MW3WqEeFXdXE8=      
   'on':
     tags: true

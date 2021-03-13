@@ -3,18 +3,70 @@ from pathlib import Path
 
 
 def path_head(path: str) -> str:
+    """
+    Get the head of a path string.
+
+    >>> path_head('/dir1/dir2/path.ext')
+    'path.ext'
+
+    Args:
+        path (str): Path string.
+
+    Returns:
+        str: Path string's head.
+    """
     return os.path.split(path)[1]
 
 
 def path_tail(path: str) -> str:
+    """
+    Get the tail of a path string.
+
+    >>> path_tail('/dir1/dir2/path.ext')
+    '/dir1/dir2'
+
+    Args:
+        path (str): Path string.
+
+    Returns:
+        str: Path string's tail.
+    """
     return os.path.split(path)[0]
 
 
 def path_base(path: str) -> str:
+    """
+    Get the base of a path string.
+
+    >>> path_base('/dir1/dir2/path.ext')
+    ''
+
+    >>> path_base('dir1/dir2/path.ext')
+    'dir1'
+
+    Args:
+        path (str): Path string.
+
+    Returns:
+        str: Path string's base.
+    """
+
     return os.path.normpath(path).split(os.sep)[0]
 
 
 def path_ext(path: str) -> str:
+    """
+    Get the extension of a path string.
+
+    >>> path_ext('/dir1/dir2/path.ext')
+    '.ext'
+
+    Args:
+        path (str): Path string.
+
+    Returns:
+        str: Path string's extension.
+    """
     return os.path.splitext(path)[1]
 
 

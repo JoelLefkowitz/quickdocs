@@ -8,4 +8,10 @@ class MissingInputs(Exception):
 
 
 def warn_redundant_inputs(inputs: List[str]) -> None:
+    """
+    Warn the user if they've included unnecessary inputs.
+
+    Args:
+        inputs (List[str]): List of unnecessary inputs.
+    """
     warnings.warn(f"Redundant inputs: {inputs}")

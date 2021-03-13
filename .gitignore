@@ -89,8 +89,6 @@ pip-delete-this-directory.txt
 pip-log.txt
 pip-wheel-metadata/
 profile_default/
-regisrty/media
-regisrty/registry/media
 sdist/
 share/python-wheels/
 site/

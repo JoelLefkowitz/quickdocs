@@ -29,6 +29,10 @@ cli.add_argument(
 
 
 def main() -> None:
+    """
+    Entrypoint for Quickdocs.
+    Collects user input and generates templates.
+    """
     args = cli.parse_args()
     inputs = Inputs.from_file(args.input)
 

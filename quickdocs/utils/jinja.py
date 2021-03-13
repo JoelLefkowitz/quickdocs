@@ -11,6 +11,14 @@ def parse_template(
     output_path: str,
     context: Dict[str, Any],
 ) -> None:
+    """
+    Parse a jinja template.
+
+    Args:
+        template_path (str): Jinja template path.
+        output_path (str): Path for parsed template output.
+        context (Dict[str, Any]): Render context variables.
+    """
     env = Environment(
         loader=FileSystemLoader(
             path_tail(template_path), encoding="utf-8"
