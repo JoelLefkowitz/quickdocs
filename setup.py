@@ -9,7 +9,7 @@ if __name__ == "__main__":
             "dataclasses",
             "pyimport",
             "pypandoc",
-            "pyyaml",
+            "ruamel.yaml",
             "simple_pipes",
             "sphinx-autodoc-annotation",
             "sphinx",

@@ -1,7 +1,7 @@
 import json
-from typing import Dict, Any
+from typing import Any, Dict
 
-import yaml
+import ruamel.yaml
 
 
 def parse_json(path: str) -> Dict[str, Any]:
@@ -29,4 +29,4 @@ def parse_yaml(path: str) -> Dict[str, Any]:
         Dict: Dictionary of parsed data.
     """
     with open(path, "r") as stream:
-        return yaml.safe_load(stream)
+        return ruamel.yaml.safe_load(stream)

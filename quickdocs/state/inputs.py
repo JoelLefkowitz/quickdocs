@@ -59,12 +59,19 @@ class Inputs:
             raise UnrecognizedFormat(file_type)
 
         missing_inputs = cls.missing_inputs(set(inputs.keys()))
+
         if missing_inputs:
             raise MissingInputs(list(missing_inputs))
 
         redundant_inputs = cls.redundant_inputs(set(inputs.keys()))
+
         if redundant_inputs:
             warn_redundant_inputs(list(redundant_inputs))
+            inputs = {
+                k: v
+                for k, v in inputs.items()
+                if k in cls.allowed_inputs()
+            }
 
         return cls(**inputs)
 
