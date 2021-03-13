@@ -131,9 +131,7 @@ This will run linters, formatters, tests, generate a test coverage report and th
 
 ## Continuous integration
 
-This repository uses Travis CI to build and test each commit.
-lint, test, test-docs can be built, generate coverage
-formatting and writing/generating docs
+This repository uses Travis CI to build and test each commit. Formatting tasks and writting documentation must be done before committing new code.
 
 ## Versioning
 

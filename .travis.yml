@@ -27,10 +27,6 @@ jobs:
 
     - <<: *unittests
       python: 3.8
-
-    - stage: Test coverage
-      script: grunt tests:coverage
-      install: pip install .[tests]
       before_script:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh) download
 
