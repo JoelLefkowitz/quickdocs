@@ -3,7 +3,7 @@ language: python
 python: "3.8"
 cache: pip
 
-node_js: "lts/*"
+node_js: "14"
 
 jobs:
   include:
