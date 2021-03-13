@@ -1,7 +1,3 @@
-function quit(name) {
-  console.log("Task: '".concat(name, "' has not been implemented"));
-}
-
 module.exports = function (grunt) {
   grunt.initConfig({
     exec: {

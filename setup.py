@@ -6,6 +6,7 @@ if __name__ == "__main__":
             "console_scripts": ["quickdocs = quickdocs.__main__:main"]
         },
         install_requires=[
+            "dataclasses",
             "pyimport",
             "pypandoc",
             "pyyaml",

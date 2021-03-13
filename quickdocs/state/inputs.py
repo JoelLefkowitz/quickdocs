@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import os
 from dataclasses import dataclass
 from typing import Any, Mapping, Optional, Set, get_type_hints
@@ -35,7 +33,7 @@ class Inputs:
     apidoc_module_dir: Optional[str] = None
 
     @classmethod
-    def from_file(cls, path: str) -> Inputs:
+    def from_file(cls, path):  # type: (str) -> Inputs
         """
         Read inputs from a file.
 
