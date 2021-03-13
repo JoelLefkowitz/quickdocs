@@ -1,11 +1,12 @@
 language: python
-
-python: "3.8"
+python: 3.8
 
 before_install:
   - nvm install 14
+  - npm install
+  - npm install -g grunt-cli
 
-cache: 
+cache:
   - pip
   - npm
 
@@ -13,18 +14,13 @@ jobs:
   include:
     - stage: Linters
       script: grunt lint
-      install:
-        - npm install
-        - pip install .[tools]
+      install: pip install .[tools]
 
     - &unittests
       stage: Unit tests
       python: 3.6
-      script:
-        - grunt tests:unit
-      install:
-        - npm install
-        - pip install .[tests]
+      script: grunt tests:unit
+      install: pip install .[tests]
 
     - <<: *unittests
       python: 3.7
@@ -33,15 +29,14 @@ jobs:
       python: 3.8
 
     - stage: Test coverage
-      script:
-        - grunt tests:coverage
-      install:
-        - npm install
-        - pip install .[tests]
+      script: grunt tests:coverage
+      install: pip install .[tests]
       before_script:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh) download
+
       after_success:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+
       env:
         secure: >-
           azswN6AXnY6C5WWuXK5z+v6zFbt5CLwY9Lbqt0w0kP4rxLPhnQB7iJQKvSacDiNt4DzGj
@@ -57,9 +52,7 @@ jobs:
 
     - stage: Docs
       script: "grunt docs:build"
-      install:
-        - npm install
-        - pip install -r docs/requirements.txt
+      install: pip install -r docs/requirements.txt
       addons:
         apt:
           packages:
