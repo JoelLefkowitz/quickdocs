@@ -12,7 +12,7 @@ jobs:
       install:
         - npm install
         - pip install .[tools]
-    
+
     - &unittests
       stage: Unit tests
       python: 3.6
@@ -24,7 +24,7 @@ jobs:
 
     - <<: *unittests
       python: 3.7
-    
+
     - <<: *unittests
       python: 3.8
 
@@ -50,9 +50,9 @@ jobs:
           uM7bMm9RP1mHcIUAu6Drrq24fFtlx/f/hGIINHcE2gQJrRETVMOPqDJNxnhAIyEh4y69M
           3XtrqWZcNZ5vkQI0Rn6jwsyMaUkC2SuwBoolovWRpmi/bMl3QkL7hH9gq+1dNevJZVuSe
           P75buxwLaJqgfp0yaIxISoG0Yj5H0B9AqfZV/zai5QoMq8RVFIQinZ6N15JPb8=
-    
+
     - stage: Docs
-      script: 'grunt docs:build'
+      script: "grunt docs:build"
       install:
         - npm install
         - pip install -r docs/requirements.txt
@@ -76,6 +76,6 @@ deploy:
       zec3AyvphUzQI2IY9533e5Y07trXI9k5InGd4jWXpyaC1PJizToYCtOsjcJW7yZtEuZ8cPlR9
       XqROo4Edv7P1PWrqfGBtgQ1DA+3FCpn0BSb2SoNAZXLkZjicD82Bbc8INFabDkDIWW5Sn8EOH
       BO1/CA8f8eoa/qZFhUPodGz83vO02n7aBHuiR8nacV/JwS938feM4R95zT7hOwp3rqfVoTW0z
-      MsaewpcVOnQr5MW3WqEeFXdXE8=      
-  'on':
+      MsaewpcVOnQr5MW3WqEeFXdXE8=
+  "on":
     tags: true

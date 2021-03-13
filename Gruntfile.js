@@ -17,7 +17,7 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks("grunt-exec");
-  
+
   grunt.registerTask("lint", [
     "exec:cspell",
     "exec:remark",
@@ -25,10 +25,9 @@ module.exports = function (grunt) {
     "exec:bandit",
     "exec:mypy",
   ]);
-  
+
   grunt.registerTask("tests:unit", "exec:tox");
   grunt.registerTask("docs:generate", "exec:quickdocs");
   grunt.registerTask("docs:build", "exec:sphinx");
   grunt.registerTask("precommit", ["lint", "tests:unit", "docs:generate"]);
-  
 };
