@@ -31,7 +31,7 @@ jobs:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh) download
 
       after_success:
-        - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
 
       env:
         secure: >-
