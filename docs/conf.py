@@ -10,7 +10,7 @@ sys.path.append("..")
     Sphinx core settings
 """
 project = "quickdocs"
-version = "1.6.0"
+version = "1.6.1"
 author = "Joel Lefkowitz"
 master_doc = "index"
 
