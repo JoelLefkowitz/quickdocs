@@ -76,11 +76,12 @@ jobs:
 
     - stage: Publish
       install: pip install .[tools]
+      script: echo Deploying $(git describe --tags)
       deploy:
-        "on":
-          tags: true
-          
         provider: pypi
         distributions: sdist bdist_wheel
         username: "__token__"
         <<: *pypi_secure
+      "on":
+          tags: true
+          branch: master
