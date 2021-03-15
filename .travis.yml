@@ -66,7 +66,6 @@ jobs:
 
     - <<: *unittests
       python: 3.8
-      <<: *codacy_download
       <<: *codacy_report
       <<: *codacy_secure
 
@@ -78,9 +77,10 @@ jobs:
     - stage: Publish
       install: pip install .[tools]
       deploy:
+        "on":
+          tags: true
+          
         provider: pypi
         distributions: sdist bdist_wheel
         username: "__token__"
         <<: *pypi_secure
-        "on":
-          tags: true
