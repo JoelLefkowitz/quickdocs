@@ -85,6 +85,7 @@ jobs:
       <<: *install_pandoc
 
     - stage: Publish
+      install: pip install .[tools]
       deploy:
         provider: pypi
         distributions: sdist bdist_wheel
