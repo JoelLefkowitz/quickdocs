@@ -21,6 +21,7 @@ if __name__ == "__main__":
         extras_require={
             "tests": [
                 "coverage",
+                "codacy-coverage",
                 "pytest-bdd",
                 "pytest-cov",
                 "pytest-html",

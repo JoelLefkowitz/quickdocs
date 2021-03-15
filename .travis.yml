@@ -12,18 +12,9 @@ cache:
   - npm
 
 aliases:
-  codacy_download: &codacy_download
-    before_script: >-
-      bash
-      <(curl -Ls https://coverage.codacy.com/get.sh) 
-      download
-
   codacy_report: &codacy_report
-    after_success: >-
-      bash 
-      <(curl -Ls https://coverage.codacy.com/get.sh) 
-      report -r coverage.xml
-
+    after_success: python-codacy-coverage -r coverage.xml
+  
   codacy_secure: &codacy_secure
     env:
       secure: >-
