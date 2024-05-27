@@ -53,8 +53,8 @@ file = "README.md"
 content-type = "text/markdown"
 
 [project.urls]
-repository = "https://github.com/JoelLefkowitz/"
-homepage = "https://joellefkowitz.github.io/"
+repository = "https://github.com/JoelLefkowitz/quickdocs"
+homepage = "https://joellefkowitz.github.io/quickdocs"
 
 [[project.authors]]
 name = "Joel Lefkowitz"
