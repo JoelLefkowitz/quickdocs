@@ -4,7 +4,7 @@ requires = ["hatchling"]
 
 [project]
 name = "quickdocs"
-description = "Creates HTML docs from a project's readme and sphinx-apidoc."
+description = "Create HTML docs from a project's readme and sphinx-apidoc."
 version = "1.6.3"
 
 keywords = ["documentation", "Sphinx", "apidoc"]

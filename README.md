@@ -1,6 +1,6 @@
 # Quickdocs
 
-Creates HTML docs from a project's readme and sphinx-apidoc.
+Create HTML docs from a project's readme and sphinx-apidoc.
 
 ![Review](https://img.shields.io/github/actions/workflow/status/JoelLefkowitz/quickdocs/review.yml)
 ![Version](https://img.shields.io/pypi/v/quickdocs)
@@ -8,7 +8,7 @@ Creates HTML docs from a project's readme and sphinx-apidoc.
 ![Quality](https://img.shields.io/codacy/grade/d2067acdcb594c47b8a63d5291c6612c)
 ![Coverage](https://img.shields.io/codacy/coverage/d2067acdcb594c47b8a63d5291c6612c)
 
-## Installation
+## Installing
 
 ```bash
 pip install quickdocs
