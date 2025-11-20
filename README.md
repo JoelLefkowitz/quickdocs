@@ -2,7 +2,7 @@
 
 Create HTML docs from a project's readme and sphinx-apidoc.
 
-![Review](https://img.shields.io/github/actions/workflow/status/JoelLefkowitz/quickdocs/review.yml)
+![Review](https://img.shields.io/github/actions/workflow/status/JoelLefkowitz/quickdocs/review.yaml)
 ![Version](https://img.shields.io/pypi/v/quickdocs)
 ![Downloads](https://img.shields.io/pypi/dw/quickdocs)
 ![Quality](https://img.shields.io/codacy/grade/d2067acdcb594c47b8a63d5291c6612c)
